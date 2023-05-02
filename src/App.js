@@ -10,8 +10,6 @@ import ErrorPageApp from "./views/user/ErrorPageApp";
 
 import AccountApp from "./views/user/AccountApp";
 
-import SignupApp from "./views/user/SignupApp";
-
 import LoginApp from "./views/user/LoginApp";
 
 import OrderApp from "./views/user/OrderApp";
@@ -19,6 +17,7 @@ import OrderApp from "./views/user/OrderApp";
 import Home from "./views/user/Home";
 
 
+import Seller_login from "./views/seller/Seller_login_page";
 
 
 
@@ -31,9 +30,13 @@ function App() {
                     <Route path="/today-deals" element={<ProductListApp />}></Route>
                     <Route path="/checkout" element={<CheckoutApp />}></Route>
                     <Route path="/account" element={<AccountApp />}></Route>
-                    <Route path="/signup" element={<SignupApp />}></Route>
+
+                    <Route path='/seller_login' element={<Seller_login/>} />
                     <Route path="/orders" element={<OrderApp />}></Route>
                     <Route path="/login" element={<LoginApp />}></Route>
+                    
+                    <Route path="/Seller_login" element={<Seller_login />}></Route>
+
                     <Route path="*" element={<ErrorPageApp />}></Route>
                     <Route path="/" element={<Home />}></Route>
                 </Routes>

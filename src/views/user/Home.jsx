@@ -37,6 +37,11 @@ import Menu from "@/components/menu/Menu";
 // hero
 import Hero from "@/components/hero/Hero";
 
+
+
+
+
+
 function Home() {
   return (
     <>
@@ -46,6 +51,7 @@ function Home() {
       <MobileHeaderApp />
       <Hero />
       <ProductRow />
+      
       <ProductSlider
         key={"books"}
         products={BooksProduct}

@@ -2,13 +2,14 @@ import { useValidation } from "react-simple-form-validator";
 import AuthLogo from "@/assets/media/logo/auth-logo.png";
 import { useGlobalContext } from "@/context/useContext";
 import { Link, useNavigate } from "react-router-dom";
-import AuthApp from "./AuthApp";
+import AuthApp from "../user/AuthApp";
 import { useState } from "react";
-import { signInWithGoogle } from "../../firebase";
+import { signInWithGoogleSeller } from "../../firebase";
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBBtn } from 'mdb-react-ui-kit';
 import React from 'react';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import LoginApp from '../user/LoginApp';
 import { NavLink } from "react-router-dom";
 
 
@@ -17,29 +18,16 @@ import { NavLink } from "react-router-dom";
 
 
 
-function LoginApp() {
-
-  const navigate = useNavigate();
-  const { login_user, user } = useGlobalContext();
-  const movePage = useNavigate();
-  const [email, setEamil] = useState("");
-  const [password, setPassword] = useState("");
-  const { isFieldInError, getErrorsInField, isFormValid } = useValidation({
-    fieldsRules: {
-      email: { email: true, required: true },
-      password: { required: true, minlength: 6, equalPassword: password },
-    },
-    state: { email, password },
-  });
-
-const navigateSeller = () => {
-    navigate('./seller/Seller_login_page');
-  };
+function Seller_login() {
+    const navigate = useNavigate();
+    const { login_user, user } = useGlobalContext();
+    const movePage = useNavigate();
+    const [email, setEamil] = useState("");
 
   
-
-
-  
+    const navigateSeller = () => {
+      navigate('./seller/Seller_login_page');
+    };
   if (user.auth) {
     return <AuthApp path={"/"}></AuthApp>;
   } 
@@ -60,32 +48,41 @@ const navigateSeller = () => {
               <img src={AuthLogo} alt="Auth_Logo" />
             </Link>
           </div>
-{/*           
+
+          <div className="login-logo">
+
+              <h1>Seller Login</h1>
+
+          </div>
+          
       <MDBRow>
-      <MDBCol sm='6'>
-        <MDBCard>
-          <MDBCardBody>
-            <MDBCardTitle>Costumer / User Login</MDBCardTitle>
-            <MDBBtn href='#' onClick={() => signInWithGoogle()}>Login with google</MDBBtn>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-      
-      <MDBCol sm='6'>
+      <MDBCol sm='20'>
         <MDBCard>
           <MDBCardBody>
             <MDBCardTitle>Amazon Seller Login</MDBCardTitle>
-            <MDBBtn href='#'>Login as Seller</MDBBtn>
+            <MDBCardText>Login as Seller</MDBCardText>
+            <MDBBtn href='#' onClick={() => signInWithGoogleSeller()}>Sign in with Google</MDBBtn>
           </MDBCardBody>
         </MDBCard>
       </MDBCol>
-    </MDBRow> */}
+      <MDBCol sm='20'>
+        <MDBCard>
+          <MDBCardBody>
+            {/* <MDBCardTitle>Costumer / User Login</MDBCardTitle> */}
+            <MDBCardText>User?</MDBCardText>
+            <MDBBtn><NavLink to="/login">Login as User</NavLink></MDBBtn>
+          </MDBCardBody>
+        </MDBCard>
+      </MDBCol>
+
+      
+    </MDBRow>
 
     </section>
 
 
-
 {/* 
+
     <MDBCard className='w-75'>
         <MDBCardBody>
           <MDBCardTitle>Card title</MDBCardTitle>
@@ -94,12 +91,7 @@ const navigateSeller = () => {
         </MDBCardBody>
       </MDBCard>
 
-      <br /> */}
-
-
-
-
-
+      <br />
 <MDBRow>
 <MDBCard className='w-50'>
         <MDBCardBody>
@@ -112,13 +104,12 @@ const navigateSeller = () => {
         <MDBCard className='w-50'>
           <MDBCardBody>
             <MDBCardTitle>Amazon Seller Login</MDBCardTitle>
-            <MDBBtn><NavLink to="/Seller_login">Login as Seller</NavLink></MDBBtn>
-            {/* <MDBBtn onClick={navigateSeller}>Login as Seller</MDBBtn> */}
+            <MDBBtn href='#'>Login as Seller</MDBBtn>
           </MDBCardBody>
         </MDBCard>
       </MDBCol>
 </MDBRow>
-      
+       */}
           {/* <div className="login-content">
             <h3>Sign-In</h3>
             <div className="login-google" onClick={() => signInWithGoogle()}>
@@ -140,4 +131,4 @@ const navigateSeller = () => {
   }
 }
 
-export default LoginApp;
+export default Seller_login;

@@ -6,8 +6,6 @@ import { MdOutlinePlace, MdSearch } from "react-icons/md";
 
 import { useGlobalContext } from "@/context/useContext";
 
-import ReactCountryFlag from "react-country-flag";
-
 import { Link } from "react-router-dom";
 
 function HeaderApp() {
@@ -24,15 +22,6 @@ function HeaderApp() {
               />
             </div>
           </Link>
-          <div className='header-address'>
-            <div>
-              <MdOutlinePlace size={20}></MdOutlinePlace>
-            </div>
-            <article>
-              <p>Iran</p>
-              <p>Bandar-e-abbas</p>
-            </article>
-          </div>
           <div className='header-search'>
             <div>
               <select
@@ -60,56 +49,9 @@ function HeaderApp() {
               </button>
             </div>
           </div>
-          <div className='header-country'>
-            <p>English</p>
-            <div className='header-signin-bottom-article'>
-              <ReactCountryFlag
-                className='country-flag-m'
-                countryCode='US'
-                svg
-              />
-              <BsFillCaretDownFill size={10}></BsFillCaretDownFill>
-            </div>
-            {/* hover country language choose */}
-            <div className='header-country-choose'>
-              <p>
-                <input
-                  type='radio'
-                  name='language'
-                  id='english'
-                  value='english'
-                  defaultChecked={true}
-                />
-                <span>English - EN</span>
-              </p>
-              <p>
-                <input
-                  type='radio'
-                  name='language'
-                  id='espain'
-                  value='espain'
-                />
-                <span>Espanol - ES</span>
-                <a
-                  href='learnmore'
-                  className='header-country-choose-link'>
-                  Learn more
-                </a>
-              </p>
-              <p>
-                <ReactCountryFlag
-                  countryCode='US'
-                  svg
-                />
-                <span>You are shopping on Amazon.com</span>
-                <a
-                  href='changecountry'
-                  className='header-country-choose-link'>
-                  Change country/region
-                </a>
-              </p>
-            </div>
-          </div>
+        
+
+
           <div className='header-signin'>
             <p>
               {user.auth
